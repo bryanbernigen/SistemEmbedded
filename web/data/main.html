@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="canvas-container">
+            <canvas id="canvas" width="750" height="750">
+                Your browser does not support HTML5
+            </canvas>
+        </div>
+        <div id="wrapperCommand">
+            <h1 class="text-center">Draw Shape</h1>
+            <p id="currentMode">Current Mode : NONE</p>
+            <div>
+                <div class="text-border-top text-bold">Draw</div>
+                <div class="button-container">
+                    <button id="drawLine" onclick="changeModeDraw(ShapeType.LINE)">Line</button>
+                    <button id="drawTriangle" onclick="changeModeDraw(ShapeType.TRIANGLE)">Triangle</button>
+                    <button id="drawSquare" onclick="changeModeDraw(ShapeType.SQUARE)">Square</button>
+                    <button id="drawRectangle" onclick="changeModeDraw(ShapeType.RECTANGLE)">Rectangle</button>
+                    <button id="drawPolygonFan" onclick="changeModeDraw(ShapeType.POLYGON_FAN)">Polygon Fan</button>
+                    <button id="drawPolygonStrip" onclick="changeModeDraw(ShapeType.POLYGON_STRIP)">Polygon Strip</button>
+                    <button id="drawConvexHull" onclick="changeModeDraw(ShapeType.CONVEX_HULL)">Convex Hull</button>
+                    <button id="animate" onclick="changeMode(ModeType.ANIMATE)">Animate</button>
+                    <button id="saveFile" onclick="saveShapes()">Save</button>
+                    <button id="loadFile" onclick="loadShapes()">Load</button>
+                </div>
+            </div>
+            <div>
+                <div class="text-border-top text-bold">Color</div>
+                <div class="button-container">
+                    <input type="color" id="inputColor" oninput="changeColor()">
+                </div>
+            </div>
+            <div>
+                <div class="text-border-top text-bold">Tools</div>
+                <div class="button-container">
+                    <button id="move" onclick="changeMode(ModeType.MOVE)">Move/Resize</button>
+                    <button id="delete" onclick="changeMode(ModeType.DELETE)">Delete</button>
+                    <button id="dilatate" onclick="changeMode(ModeType.DILATATE)">Dilatate</button>
+                    <button id="rotate" onclick="changeMode(ModeType.ROTATE)">Rotate</button>
+                    <button id="changeColor" onclick="changeMode(ModeType.CHANGECOLOR)">Change Color</button>
+                    <button id="add" onclick="changeMode(ModeType.ADD)">Add</button>
+                </div>
+            </div>
+            <div>
+                <div class="text-border-top text-bold">More Option</div>
+                <div class="button-container">
+                    <input type="checkbox" onchange="changeOptionDisplayCenter()" id="displayCenter">
+                    <label for="displayCenter">Display Center of Shape</label>
+                    <div class="rectangle-resize-container">
+                        <label for="rectangle-resize-mode">Rectange Resize Mode:</label>
+                        <select type="rectangle-resize-mode" id="rectangle-resize-mode" 
+                        onchange="changeRectangleResizeMode()">
+                            <option value="0">Horizontal</option>
+                            <option value="1">Vertical</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <script src="init.js"></script>
+    <script src="enum.js"></script>
+    <script src="utility.js"></script>
+    <script src="shape.js"></script>
+    <script src="interaction.js"></script>
+    <script src="loadAndSave.js"></script>
+    <!-- <script src="test.js"></script> -->
+</body>
+
+</html>
