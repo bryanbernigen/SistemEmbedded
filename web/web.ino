@@ -54,7 +54,7 @@ void setup() {
 
     // Web Server Root URL
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->send(SPIFFS, "/main.html", "text/html");
+    request->send(SPIFFS, "/main.html", "text/html");                         n                                   
   });
 
   server.serveStatic("/", SPIFFS, "/");
